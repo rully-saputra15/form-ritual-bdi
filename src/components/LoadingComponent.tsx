@@ -1,5 +1,5 @@
 import {motion} from "framer-motion";
-import {Center, Image, VStack} from "@chakra-ui/react";
+import {Image, VStack} from "@chakra-ui/react";
 import LogoMnsbdi from "../assets/logo-mnsbdi.png";
 
 const LoadingComponent = () => {
