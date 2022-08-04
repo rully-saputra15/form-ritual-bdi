@@ -1,5 +1,5 @@
 import React, {Suspense} from "react";
-import {Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {MainContainer} from "./components/MainLayout";
 import LoadingComponent from "./components/LoadingComponent";
 
@@ -20,11 +20,13 @@ const App = () => {
   return (
     <MainContainer>
       <Suspense fallback={<LoadingComponent/>}>
-        <Routes>
-          <Route path="/" element={<DashboardContainer/>}/>
-          <Route path="/gojukai" element={<GojukaiContainer/>}/>
-          <Route path="/pemberkahan-nikah" element={<PemberkahanNikahContainer/>}/>
-        </Routes>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<DashboardContainer/>}/>
+            <Route path="/gojukai" element={<GojukaiContainer/>}/>
+            <Route path="/pemberkahan-nikah" element={<PemberkahanNikahContainer/>}/>
+          </Routes>
+        </BrowserRouter>
       </Suspense>
     </MainContainer>
   );
