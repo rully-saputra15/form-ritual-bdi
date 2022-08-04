@@ -1,5 +1,5 @@
 import {FC} from "react";
-import {VStack, Text, Heading, Button} from "@chakra-ui/react";
+import {Heading, Text, VStack} from "@chakra-ui/react";
 import CardOnlyTitle from "../../../components/CardOnlyTitle";
 
 interface DashboardPageProps {
