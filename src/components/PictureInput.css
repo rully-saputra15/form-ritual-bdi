@@ -1,0 +1,14 @@
+#upload-photo::-webkit-file-upload-button {
+    visibility: hidden;
+    padding: 12px 0;
+}
+
+#upload-photo::before {
+    content: 'Upload Photo';
+    padding: 8px 8px;
+    background-color: #285E61 !important;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 2em !important;
+}
