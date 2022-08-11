@@ -26,10 +26,8 @@ const GojukaiPageContainer = () => {
     console.log(data);
   }, []);
 
-  const district: string[] = ["Aceh", "Kepri", "PKU", "DKI"];
   const gender: string[] = ["Laki-Laki", "Perempuan"];
   const status: string[] = ["Belum Menikah", "Menikah"];
-  const citizenship: string[] = ["WNI", "WNA"];
   const education: string[] = ["SD", "SMP", "SMA", "S1", "S2", "S3"];
   const relationship: string[] = ["Anak", "Saudara", "Orang Tua", "Teman", "Suami", "Istri"];
   const radioAcceptedOptions: RadioProps[] = [
@@ -44,10 +42,8 @@ const GojukaiPageContainer = () => {
     <GojukaiPage form={register}
                  showGojukaiYearInput={showGojukaiYearInput}
                  showOkatagiYearInput={showOkatagiYearInput}
-                 districtData={district}
                  genderData={gender}
                  statusData={status}
-                 citizenshipData={citizenship}
                  educationData={education}
                  relationshipData={relationship}
                  radioAcceptedOptionsData={radioAcceptedOptions}

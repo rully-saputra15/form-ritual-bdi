@@ -1,14 +1,18 @@
-export interface GojukaiForm {
+export interface Person {
   name: string;
-  district: string;
-  gender: string;
-  phoneNumber: string;
   placeOfBirth: string;
   dateOfBirth: string;
-  status: string;
-  address: string;
-  job: string;
   citizenship: string;
+  religion: string;
+  job: string;
+  address: string;
+  district: string
+}
+
+export interface GojukaiForm extends Person{
+  gender: string;
+  phoneNumber: string;
+  status: string;
   education: string;
   activeFrom: string;
   profilePicture: string;
@@ -23,4 +27,13 @@ export interface Member {
   gojukaiYear: string;
   okatagiStatus: string;
   okatagiYear: string;
+}
+
+export interface PemberkahanNikahForm {
+  husband: Person,
+  wife: Person,
+  photoProfile: string;
+  dateOfMarried: string;
+  timeOfMarried: string;
+  ceremonyPlace: string;
 }

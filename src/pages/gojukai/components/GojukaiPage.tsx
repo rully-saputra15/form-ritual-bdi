@@ -10,15 +10,14 @@ import {PictureInput} from "../../../components/PictureInput";
 import {RadioInput} from "../../../components/RadioInput";
 import {motion} from "framer-motion";
 import {itemFormVariant, mainFormVariant} from "../../../constants/animation";
+import {citizenship, district} from "../../../constants/data";
 
 interface GojukaiPageProps {
   form: UseFormRegister<GojukaiForm>;
   showGojukaiYearInput: boolean;
   showOkatagiYearInput: boolean;
-  districtData: string[];
   genderData: string[];
   statusData: string[];
-  citizenshipData: string[];
   educationData: string[];
   relationshipData: string[];
   radioAcceptedOptionsData: RadioProps[];
@@ -31,10 +30,8 @@ const GojukaiPage: FC<GojukaiPageProps> = (
     form,
     showGojukaiYearInput,
     showOkatagiYearInput,
-    districtData,
     genderData,
     statusData,
-    citizenshipData,
     educationData,
     relationshipData,
     radioAcceptedOptionsData,
@@ -58,7 +55,7 @@ const GojukaiPage: FC<GojukaiPageProps> = (
         <SelectInput label="Daerah/Sentra/Cetya"
                      type="district"
                      placeholder="Daerah"
-                     options={districtData}
+                     options={district}
                      inputHookForm={form("district")}/>
         <SelectInput label="Jenis Kelamin"
                      type="gender"
@@ -92,7 +89,7 @@ const GojukaiPage: FC<GojukaiPageProps> = (
                      inputHookForm={form("job")}/>
         <SelectInput label="Kewarganegaraan"
                      type="citizenship"
-                     options={citizenshipData}
+                     options={citizenship}
                      placeholder="Contoh: WNI"
                      inputHookForm={form("citizenship")}/>
         <SelectInput label="Pendidikan Terakhir"
@@ -155,10 +152,6 @@ const GojukaiPage: FC<GojukaiPageProps> = (
             Submit
           </Button>
         </motion.div>
-        {/*<FormControl>*/}
-        {/*  <FormLabel htmlFor="name">Nama Jelas Pemohon</FormLabel>*/}
-        {/*  <Input key="name" placeholder="Jane Doe" {...form('name')} />*/}
-        {/*</FormControl>*/}
       </motion.form>
     </VStack>
   );
