@@ -5,8 +5,8 @@ import {useCallback} from "react";
 
 const PemberkahanNikahPageContainer = () => {
   const { register, watch, handleSubmit } = useForm<PemberkahanNikahForm>();
-
   const handleSubmitForm = useCallback((data: any) => {
+
     console.log(data);
   }, []);
 

@@ -23,7 +23,9 @@ export const NormalInput: FC<NormalnputProps> = (
     <motion.div variants={itemFormVariant}>
       <FormControl my={2}>
         <FormLabel htmlFor={label}>{label}</FormLabel>
-        <Input key={type} type={type} placeholder={placeholder} {...inputHookForm} />
+        <Input key={type}
+               type={type}
+               placeholder={placeholder} {...inputHookForm} />
       </FormControl>
     </motion.div>
   );

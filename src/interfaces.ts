@@ -7,6 +7,7 @@ export interface Person {
   job: string;
   address: string;
   district: string
+  cetya: string;
 }
 
 export interface GojukaiForm extends Person{
