@@ -1,3 +1,9 @@
+export interface ApiResponse<T> {
+  code: number;
+  messages: string[];
+  data: T;
+}
+
 export interface Person {
   name: string;
   placeOfBirth: string;
