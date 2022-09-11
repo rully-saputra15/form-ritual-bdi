@@ -2,10 +2,15 @@ import GojukaiPage from "./components/GojukaiPage";
 import {useForm} from "react-hook-form";
 import {GojukaiForm} from "../../interfaces";
 import {useCallback, useEffect, useState} from "react";
-import {RadioProps} from "@chakra-ui/react";
+import {RadioProps, useToast} from "@chakra-ui/react";
+import {Simulate} from "react-dom/test-utils";
+import {useMutation} from "@tanstack/react-query";
+import api from "../../utils/api";
 
 const GojukaiPageContainer = () => {
-  const { register, watch, handleSubmit } = useForm<GojukaiForm>();
+  const { register, formState: { errors }, watch, handleSubmit } = useForm<GojukaiForm>();
+  const toast = useToast();
+
   const [showGojukaiYearInput, setShowGojukaiYearInput] =
     useState(false);
 
@@ -22,8 +27,33 @@ const GojukaiPageContainer = () => {
     setShowOkatagiYearInput(gojukaiStatus === "Sudah");
   }, [watch("anotherMember.okatagiStatus")]);
 
+  const { mutate: createGojukaiForm } = useMutation(
+    (data: GojukaiForm) =>
+      api.createGojukaiForm(data), {
+      onSuccess: (res) => {
+        console.log(res);
+      }
+    }
+  );
   const handleSubmitForm = useCallback((data: any) => {
-    console.log(data);
+    const reader = new FileReader();
+    if (data.profilePicture[0].size > 2000000) {
+      toast({
+        title: "File foto yang anda upload lebih dari 2 MB",
+        description: "Mohon mengupload foto dengan ukuran yang lebih kecil",
+        status: "error",
+        position: "top-right",
+        duration: 5000,
+        isClosable: true
+      });
+      return;
+    }
+    reader.readAsDataURL(data.profilePicture[0]);
+
+    reader.onload = () => {
+      data.profilePicture = reader.result;
+      createGojukaiForm(data);
+    };
   }, []);
 
   const gender: string[] = ["Laki-Laki", "Perempuan"];
@@ -40,6 +70,7 @@ const GojukaiPageContainer = () => {
   ];
   return (
     <GojukaiPage form={register}
+                 errors={errors}
                  showGojukaiYearInput={showGojukaiYearInput}
                  showOkatagiYearInput={showOkatagiYearInput}
                  genderData={gender}

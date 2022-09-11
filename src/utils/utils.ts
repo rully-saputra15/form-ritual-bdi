@@ -1,6 +1,8 @@
 import axios, {AxiosResponse} from "axios";
 import {ApiResponse} from "../interfaces";
 
+const reader = new FileReader();
+
 const utils = {
   async apiHandler<T>(
     request: Promise<AxiosResponse<ApiResponse<T>>>
@@ -12,6 +14,14 @@ const utils = {
         return Promise.reject(error.response?.data);
       }
       throw new Error(error as any);
+    }
+  },
+  async convertImageToBase64(file: File) : Promise<any> {
+    reader.readAsDataURL(file)
+    reader.onload = () => Promise.resolve(reader.result);
+
+    reader.onerror = (error) => {
+      return Promise.reject(error)
     }
   }
 };
