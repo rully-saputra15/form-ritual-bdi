@@ -172,7 +172,7 @@ const GojukaiPage: FC<GojukaiPageProps> = (
                          isEmpty={showGojukaiYearInput}
                          errorMessage="Tahun Gojukai perlu diisi"
                          placeholder="Contoh: 1998"
-                         inputHookForm={form("anotherMember.gojukaiYear")}/>
+                         inputHookForm={form("anotherMember.gojukaiYear", {required: showGojukaiYearInput})}/>
           )
         }
         <RadioInput label="Terima Okatagi Gohonzon"
@@ -187,7 +187,7 @@ const GojukaiPage: FC<GojukaiPageProps> = (
                          isEmpty={showOkatagiYearInput}
                          errorMessage="Tahun Terima Okatagi Gohonzon perlu diisi"
                          placeholder="Contoh: 1998"
-                         inputHookForm={form("anotherMember.okatagiYear")}/>
+                         inputHookForm={form("anotherMember.okatagiYear", {required: showOkatagiYearInput})}/>
           )
         }
         <motion.div variants={itemFormVariant}>

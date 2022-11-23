@@ -3,7 +3,6 @@ import {useForm} from "react-hook-form";
 import {GojukaiForm} from "../../interfaces";
 import {useCallback, useEffect, useState} from "react";
 import {RadioProps, useToast} from "@chakra-ui/react";
-import {Simulate} from "react-dom/test-utils";
 import {useMutation} from "@tanstack/react-query";
 import api from "../../utils/api";
 
